@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures.ts';
 
 test.describe('logowanie', () => {
   test.beforeEach(async ({ page }) => {
