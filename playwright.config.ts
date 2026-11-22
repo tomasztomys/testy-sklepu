@@ -15,6 +15,8 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL ?? 'http://localhost:3000',
     trace: 'on-first-retry',
+    timezoneId: 'Europe/Warsaw',
+    locale: 'pl-PL',
   },
   projects: [
     { name: 'setup', testMatch: /.*\.setup\.ts/ },

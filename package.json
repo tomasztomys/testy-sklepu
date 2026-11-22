@@ -8,7 +8,8 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "check": "npm run typecheck && npm run lint",
-    "test": "playwright test"
+    "test": "playwright test",
+    "test:bramka": "playwright test --grep-invert @kwarantanna"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
