@@ -62,8 +62,24 @@ jobs:
       - name: Statystyki
         if: ${{ !cancelled() }}
         run: node scripts/statystyki.ts
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: playwright-report
       - uses: actions/upload-artifact@v5
         with:
           name: raport-regresja-${{ github.run_attempt }}
           path: playwright-report
           retention-days: 14
+
+  publikacja:
+    needs: [raport]
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.wdrozenie.outputs.page_url }}
+    steps:
+      - id: wdrozenie
+        uses: actions/deploy-pages@v4
