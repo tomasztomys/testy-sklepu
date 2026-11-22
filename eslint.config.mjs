@@ -24,6 +24,10 @@ export default defineConfig(
         'playwright/no-wait-for-timeout': 'error',
         'playwright/no-raw-locators': 'warn',
         '@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
+      'playwright/no-skipped-test': ['error', { disallowFixme: true }],
+      'playwright/no-force-option': 'error',
+      'playwright/no-wait-for-selector': 'error',
+      'playwright/no-element-handle': 'error',
       },
   },
 );
