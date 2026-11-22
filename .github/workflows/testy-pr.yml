@@ -39,13 +39,23 @@ jobs:
         run: node scripts/czekaj-na-sklep.ts
       - name: Testy
         run: npm run test:pr
-      - name: Raport HTML
+      - name: Raporty
         if: ${{ !cancelled() }}
-        run: npx playwright merge-reports --reporter html ./blob-report
+        run: npx playwright merge-reports --config merge.config.ts ./blob-report
+      - name: Statystyki
+        if: ${{ !cancelled() }}
+        run: node scripts/statystyki.ts
       - name: Zapis raportu
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v5
         with:
           name: raport-pr
           path: playwright-report/
+          retention-days: 14
+      - name: Zapis wyników
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: wyniki-pr
+          path: wyniki/
           retention-days: 14
