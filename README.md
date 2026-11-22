@@ -10,8 +10,8 @@ npm ci                  # narzędzia w wersjach z książki
 docker compose up -d    # sklep ćwiczeniowy na http://localhost:3000
 ```
 
-Sklep: obraz `ghcr.io/tomasztomys/sklep-cwiczeniowy:1.0`, wymagania i API w
-[specyfikacji](https://github.com/tomasztomys/sklep-cwiczeniowy/blob/main/docs/specyfikacja.md).
+Sklep: obraz `ghcr.io/tomasztomys/sklep-cwiczeniowy:1.0`, opisany w
+[wymaganiach](https://github.com/tomasztomys/sklep-cwiczeniowy/blob/main/docs/wymagania.md) i w [opisie API](https://github.com/tomasztomys/sklep-cwiczeniowy/blob/main/docs/api.md).
 
 ## Stan projektu po każdym rozdziale
 

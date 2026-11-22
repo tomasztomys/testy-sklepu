@@ -7,11 +7,7 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "check": "npm run typecheck && npm run lint",
-    "test": "playwright test",
-    "test:bramka": "playwright test --grep-invert @kwarantanna",
-    "test:pr": "playwright test --project=chromium --grep \"@smoke|@api|@a11y|@bezpieczenstwo|@wizualne\" --grep-invert @kwarantanna --fail-on-flaky-tests",
-    "eval": "node ewaluacje/uruchom.ts"
+    "check": "npm run typecheck && npm run lint"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",
