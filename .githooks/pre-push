@@ -1,0 +1,6 @@
+#!/bin/sh
+echo "Bramka przed wypchnięciem: npm run check"
+npm run check || {
+  echo "Bramka nie przeszła. Popraw błędy przed wypchnięciem." >&2
+  exit 1
+}
