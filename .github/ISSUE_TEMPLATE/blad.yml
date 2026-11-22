@@ -1,0 +1,68 @@
+name: Błąd aplikacji
+description: Zgłoś defekt wykryty testem automatycznym albo ręcznie
+title: '[Błąd] '
+labels: ['bug']
+body:
+  - type: markdown
+    attributes:
+      value: Opisz zachowanie aplikacji, a nie test. Programista ma odtworzyć błąd bez uruchamiania testów.
+  - type: textarea
+    id: kroki
+    attributes:
+      label: Kroki do odtworzenia
+      description: Ponumerowane kroki, które wykona człowiek w przeglądarce albo w narzędziu do API.
+      placeholder: |
+        1. Otwórz stronę /produkty/kubek
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: oczekiwany
+    attributes:
+      label: Oczekiwany wynik i jego źródło
+      description: Np. wymaganie, dokumentacja API, dane startowe.
+    validations:
+      required: true
+  - type: textarea
+    id: rzeczywisty
+    attributes:
+      label: Rzeczywisty wynik
+    validations:
+      required: true
+  - type: dropdown
+    id: powtarzalnosc
+    attributes:
+      label: Jak często występuje?
+      options:
+        - Za każdym razem
+        - Czasami (w opisie podaj, ile razy na ile prób)
+        - Raz, nie udało się powtórzyć
+    validations:
+      required: true
+  - type: dropdown
+    id: wplyw
+    attributes:
+      label: Wpływ na użytkownika
+      options:
+        - Krytyczny, blokuje zakup albo grozi utratą pieniędzy lub danych
+        - Poważny, funkcja działa błędnie
+        - Drobny, wygląd lub tekst
+    validations:
+      required: true
+  - type: textarea
+    id: srodowisko
+    attributes:
+      label: Środowisko
+      description: Wersja aplikacji lub commit, adres, przeglądarka i jej wersja.
+    validations:
+      required: true
+  - type: textarea
+    id: dowody
+    attributes:
+      label: Dowody
+      description: Zrzut ekranu, komunikat błędu, fragment odpowiedzi API, link do przebiegu CI. Plik trace dołącz tylko po sprawdzeniu, że nie zawiera haseł ani tokenów.
+  - type: input
+    id: test
+    attributes:
+      label: Test automatyczny (jeśli dotyczy)
+      description: Plik i nazwa testu, który wykrył błąd.

@@ -2,6 +2,8 @@ import { test, expect } from './fixtures.ts';
 // UZUPEŁNIENIE (etap 6): importy dla testu z rozdziału 9.3
 import * as z from 'zod';
 import { nowyKlient } from './dane.ts';
+// UZUPEŁNIENIE (etap 6): import dla testu z rozdziału 13.1
+import { Koszyk } from './schematy.ts';
 
 test('lista produktów zawiera trzy produkty', { tag: '@api' }, async ({ request }) => {
   const odpowiedz = await request.get('/api/products');
@@ -59,4 +61,13 @@ test('rejestracja zwraca dane bez hasła', { tag: '@api' }, async ({ request }) 
   const odpowiedz = await request.post('/api/users', { data: dane });
   expect(odpowiedz.status()).toBe(201);
   expect(NowyUzytkownik.parse(await odpowiedz.json()).email).toBe(dane.email);
+});
+
+test('kod JESIEN10 obniża sumę koszyka o 10%', { tag: '@api' }, async ({ apiKlienta }, testInfo) => {
+  await apiKlienta.post('/api/cart/items', { data: { produktId: 7, ilosc: 1 } });
+  const odpowiedz = await apiKlienta.post('/api/cart/discount', { data: { kod: 'JESIEN10' } });
+  const tresc = await odpowiedz.text();
+  await testInfo.attach('odpowiedz-rabat', { body: tresc, contentType: 'application/json' });
+  await expect(odpowiedz).toBeOK();
+  expect(Koszyk.parse(JSON.parse(tresc)).suma).toBe(44.99);
 });
