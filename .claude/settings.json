@@ -1,0 +1,6 @@
+{
+  "permissions": {
+    "allow": ["Bash(npm run check)", "Bash(npx playwright test *)"],
+    "deny": ["Read(./.env)", "Read(./.env.*)", "Bash(git push *)"]
+  }
+}
