@@ -1,12 +1,10 @@
-# Node.js
 node_modules/
-
-# Playwright
 /test-results/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
-
-# Sekrety
+/wyniki/
+.playwright-mcp/
+.playwright-cli/
 .env

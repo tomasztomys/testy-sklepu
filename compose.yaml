@@ -1,0 +1,8 @@
+services:
+  sklep:
+    image: ghcr.io/tomasztomys/sklep-cwiczeniowy:1.0
+    ports:
+      - "3000:3000"
+    environment:
+      SKLEP_DANE_STARTOWE: "tak"
+      SKLEP_BLEDY: ""
