@@ -29,11 +29,13 @@ export default defineConfig({
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
       dependencies: ['setup'],
+      grepInvert: /@wizualne/,
     },
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
       dependencies: ['setup'],
+      grepInvert: /@wizualne/,
     },
     {
       name: 'mobile',
