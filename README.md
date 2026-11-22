@@ -1,12 +1,23 @@
 # Testy sklepu
 
-Repozytorium startowe do książki „Automatyzacja testów z agentem AI u boku.
-Start z Playwright i TypeScript”. Utwórz z niego własne repozytorium przyciskiem
-**Use this template** i pracuj według rozdziału 3.
+Repozytorium startowe do książki „Automatyzacja testów z agentem AI u boku. Start z Playwright i TypeScript”.
+Utwórz z niego własne repozytorium przyciskiem **Use this template** i pracuj według rozdziału 3.
 
-> W budowie. Przed wydaniem książki pojawi się tu stan projektu z początku rozdziału 3
-> oraz tagi `rozdzial-03` … `rozdzial-20` ze stanem po każdym rozdziale,
-> z którymi porównasz swój kod.
+## Start
 
-Sklep, który testujesz, uruchamiasz z obrazu `ghcr.io/tomasztomys/sklep-cwiczeniowy:1.0`.
-Jego wymagania opisuje [specyfikacja](https://github.com/tomasztomys/sklep-cwiczeniowy/blob/main/docs/specyfikacja.md).
+```bash
+npm ci                  # narzędzia w wersjach z książki
+docker compose up -d    # sklep ćwiczeniowy na http://localhost:3000
+```
+
+Sklep: obraz `ghcr.io/tomasztomys/sklep-cwiczeniowy:1.0`, wymagania i API w
+[specyfikacji](https://github.com/tomasztomys/sklep-cwiczeniowy/blob/main/docs/specyfikacja.md).
+
+## Stan projektu po każdym rozdziale
+
+Tagi `rozdzial-03` … `rozdzial-20` zawierają kod z książki po danym rozdziale, bez rozwiązań ćwiczeń.
+Gdy coś nie działa, porównaj swój kod z tagiem, np.
+[rozdzial-08](https://github.com/tomasztomys/testy-sklepu/tree/rozdzial-08). Każdy tag przechodzi
+`npm run check` (od rozdziału 4) i testy na sklepie (od rozdziału 6).
+
+Błąd w książce albo w kodzie? Sprawdź [ERRATA.md](ERRATA.md), potem zgłoś go w Issues.
