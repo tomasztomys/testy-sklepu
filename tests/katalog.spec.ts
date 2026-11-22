@@ -11,3 +11,14 @@ test('strona kubka pokazuje nazwę i cenę', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Kubek', level: 1 })).toBeVisible();
   await expect(page.getByText('49,99 zł')).toBeVisible();
 });
+
+test('strona kubka ma kompletną kartę produktu', async ({ page }) => {
+  await page.goto('/produkty/kubek');
+  await expect(page.getByRole('main')).toMatchAriaSnapshot(`
+    - heading "Kubek" [level=1]
+    - img "Biały kubek z logo sklepu"
+    - paragraph: /\\d+,\\d{2} zł/
+    - spinbutton "Ilość"
+    - button "Dodaj do koszyka"
+  `);
+});
