@@ -1,4 +1,4 @@
-import { test as base, expect } from '@playwright/test';
+import { test as base, expect, type APIRequestContext } from '@playwright/test';
 import { StronaProduktu } from './strony/strona-produktu.ts';
 import { StronaKoszyka } from './strony/strona-koszyka.ts';
 import { nowyKlient, type DaneKlienta } from './dane.ts';
@@ -7,6 +7,7 @@ interface Fixtures {
   stronaProduktu: StronaProduktu;
   stronaKoszyka: StronaKoszyka;
   klient: DaneKlienta;
+  apiKlienta: APIRequestContext;
 }
 
 export const test = base.extend<Fixtures>({
@@ -15,6 +16,15 @@ export const test = base.extend<Fixtures>({
   },
   stronaKoszyka: async ({ page }, use) => {
     await use(new StronaKoszyka(page));
+  },
+  apiKlienta: async ({ playwright, baseURL }, use) => {
+    const api = await playwright.request.newContext({ baseURL });
+    const dane = nowyKlient();
+    await expect(await api.post('/api/users', { data: dane })).toBeOK();
+    await expect(await api.post('/api/login', { data: dane })).toBeOK();
+    await use(api);
+    await api.delete('/api/users/me');
+    await api.dispose();
   },
   klient: async ({ page }, use) => {
     const dane = nowyKlient();
