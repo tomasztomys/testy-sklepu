@@ -10,8 +10,8 @@ npm ci                  # narzędzia w wersjach z książki
 docker compose up -d    # sklep ćwiczeniowy na http://localhost:3000
 ```
 
-Sklep: obraz `ghcr.io/tomasztomys/sklep-cwiczeniowy:1.0`, opisany w
-[wymaganiach](https://github.com/tomasztomys/sklep-cwiczeniowy/blob/main/docs/wymagania.md) i w [opisie API](https://github.com/tomasztomys/sklep-cwiczeniowy/blob/main/docs/api.md).
+Sklep: obraz `ghcr.io/tomasztomys/sklep-cwiczeniowy:1.0`. Jego wymagania są w [docs/sklep/wymagania.md](docs/sklep/wymagania.md),
+a opis API w [docs/sklep/api.md](docs/sklep/api.md).
 
 ## Stan projektu po każdym rozdziale
 
@@ -20,4 +20,4 @@ Gdy coś nie działa, porównaj swój kod z tagiem, np.
 [rozdzial-08](https://github.com/tomasztomys/testy-sklepu/tree/rozdzial-08). Każdy tag przechodzi
 `npm run check` (od rozdziału 4) i testy na sklepie (od rozdziału 6).
 
-Błąd w książce albo w kodzie? Sprawdź [ERRATA.md](ERRATA.md), potem zgłoś go w Issues.
+Błąd w książce albo w kodzie? Zgłoś go w Issues.
