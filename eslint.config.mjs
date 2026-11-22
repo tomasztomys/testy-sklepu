@@ -20,9 +20,10 @@ export default defineConfig(
   {
     files: ['tests/**/*.ts'],
     extends: [playwright.configs['flat/recommended']],
-    rules: {
-      'playwright/no-wait-for-timeout': 'error',
-      'playwright/no-raw-locators': 'warn',
-    },
+      rules: {
+        'playwright/no-wait-for-timeout': 'error',
+        'playwright/no-raw-locators': 'warn',
+        '@typescript-eslint/no-unused-vars': ['error', { args: 'none' }],
+      },
   },
 );

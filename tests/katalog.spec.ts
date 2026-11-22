@@ -1,4 +1,5 @@
-import { test, expect } from '@playwright/test';
+// UZUPEŁNIENIE (etap 6): import po ćwiczeniu 2 z rozdziału 8
+import { test, expect } from './fixtures.ts';
 
 test('katalog pokazuje listę produktów', async ({ page }) => {
   await page.goto('/');
